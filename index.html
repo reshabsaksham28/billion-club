@@ -360,80 +360,57 @@
         <p style="color: #444; font-size: 0.8rem;">&copy; 2024 THE BILLION CLUB</p>
     </footer>
 
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+ <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
-        // --- 1. SCROLL OBSERVER (Visual Effects) ---
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.15 
-        };
-
+        // --- 1. VISUAL EFFECTS (Scroll Blur) ---
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+                if (entry.isIntersecting) { entry.target.classList.add('active'); }
             });
         }, observerOptions);
+        document.querySelectorAll('.glass-section').forEach(section => { observer.observe(section); });
 
-        document.querySelectorAll('.glass-section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // --- 2. RAZORPAY CONFIGURATION (Payment Logic) ---
+        // --- 2. CONFIGURATION (Edit this part) ---
         
-        // REPLACEMENT STEP 1: Paste your Google Drive/Notion link here
-        const PRODUCT_LINK = "https://drive.google.com/drive/folders/1mZxO9gvoL3ceO1GQSQ8iZJR6JoiXvHG5?usp=drive_link"; 
+        // 🔴 STEP 1: PASTE YOUR PRODUCT LINK INSIDE THE QUOTES BELOW 🔴
+        // This can be a Google Drive link, a Notion page, or a PDF URL.
+        const PRODUCT_LINK = "https://drive.google.com/drive/folders/1mZxO9gvoL3ceO1GQSQ8iZJR6JoiXvHG5?usp=sharing"; 
 
         var options = {
-            // REPLACEMENT STEP 2: Paste your Razorpay Key ID here
+            // 🔴 STEP 2: PASTE YOUR RAZORPAY KEY ID BELOW 🔴
             "key": "rzp_live_RvwM02VxkcMMzE", 
             
-            "amount": "9900", // Amount is in paise (9900 paise = ₹99)
+            "amount": "100", // ₹99.00
             "currency": "INR",
             "name": "The Billion Club",
             "description": "Starter System Access",
-            "image": "", // Optional: Link to your logo URL
+            "image": "", 
             
-            // This function runs ONLY when payment is successful
+            // --- THE IMPORTANT PART (The Redirect) ---
             "handler": function (response){
-                // 1. (Optional) You can log the payment ID for reference
-                console.log("Payment ID: " + response.razorpay_payment_id);
-
-                // 2. DELIVER THE PRODUCT
-                // This redirects the user to your content immediately
-                window.location.href = PRODUCT_LINK; 
+                // This line makes the browser go to your link immediately
+                window.location.href = https://drive.google.com/drive/folders/1mZxO9gvoL3ceO1GQSQ8iZJR6JoiXvHG5?usp=sharing; 
             },
-            "prefill": {
-                "name": "", // Leave empty to let user type
-                "email": "",
-                "contact": ""
-            },
-            "theme": { 
-                "color": "#D4AF37" // Matches your Gold Accent
-            }
+            
+            "prefill": { "name": "", "email": "", "contact": "" },
+            "theme": { "color": "#D4AF37" }
         };
 
         var rzp1 = new Razorpay(options);
 
-        // Handle Payment Failures
+        // Handle Errors
         rzp1.on('payment.failed', function (response){
             alert("Payment Failed. Please try again.");
         });
 
-        // Attach to Buttons
-        document.getElementById('rzp-button-final').onclick = function(e){ 
-            rzp1.open(); 
-            e.preventDefault(); 
-        }
-        document.getElementById('rzp-button-nav').onclick = function(e){ 
-            rzp1.open(); 
-            e.preventDefault(); 
-        }
+        // Button Actions
+        document.getElementById('rzp-button-final').onclick = function(e){ rzp1.open(); e.preventDefault(); }
+        document.getElementById('rzp-button-nav').onclick = function(e){ rzp1.open(); e.preventDefault(); }
     </script>
 
 </body>
 
 </html>
+
 
