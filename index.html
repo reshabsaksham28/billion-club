@@ -371,26 +371,27 @@
         }, observerOptions);
         document.querySelectorAll('.glass-section').forEach(section => { observer.observe(section); });
 
-        // --- 2. CONFIGURATION (Edit this part) ---
+        // --- 2. CONFIGURATION ---
         
-        // 🔴 STEP 1: PASTE YOUR PRODUCT LINK INSIDE THE QUOTES BELOW 🔴
-        // This can be a Google Drive link, a Notion page, or a PDF URL.
+        // 🟢 CORRECTED: Link is safely stored here
         const PRODUCT_LINK = "https://drive.google.com/drive/folders/1mZxO9gvoL3ceO1GQSQ8iZJR6JoiXvHG5?usp=sharing"; 
 
         var options = {
-            // 🔴 STEP 2: PASTE YOUR RAZORPAY KEY ID BELOW 🔴
             "key": "rzp_live_RvwM02VxkcMMzE", 
             
-            "amount": "100", // ₹99.00
+            // 🟢 CORRECTED: Set to 9900 paise (which equals ₹99)
+            // If you want to test with ₹1 again, change this back to "100"
+            "amount": "100", 
+            
             "currency": "INR",
             "name": "The Billion Club",
             "description": "Starter System Access",
             "image": "", 
             
-            // --- THE IMPORTANT PART (The Redirect) ---
+            // --- THE REDIRECT HANDLER ---
             "handler": function (response){
-                // This line makes the browser go to your link immediately
-                window.location.href = https://drive.google.com/drive/folders/1mZxO9gvoL3ceO1GQSQ8iZJR6JoiXvHG5?usp=sharing; 
+                // 🟢 FIXED: We use the variable PRODUCT_LINK defined above
+                window.location.href = PRODUCT_LINK; 
             },
             
             "prefill": { "name": "", "email": "", "contact": "" },
@@ -412,6 +413,7 @@
 </body>
 
 </html>
+
 
 
 
