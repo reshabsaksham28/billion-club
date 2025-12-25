@@ -17,12 +17,8 @@
             --text-muted: #999999;
             --accent-gold: #D4AF37;
             --accent-gold-hover: #B59326;
-            
-            /* Enhanced Glass Variables */
             --glass-border: rgba(255, 255, 255, 0.15); 
             --glass-bg: rgba(20, 20, 20, 0.3);
-            
-            /* FONTS */
             --font-logo: 'Cinzel', serif; 
             --font-head: 'Georgia', serif; 
             --font-body: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -44,205 +40,100 @@
 
         /* --- BACKGROUND SPHERES --- */
         .bg-sphere {
-            position: fixed;
-            border-radius: 50%;
-            z-index: -1;
-            filter: blur(60px); 
-            opacity: 0.6;
+            position: fixed; border-radius: 50%; z-index: -1;
+            filter: blur(60px); opacity: 0.6;
             animation: float-bg 15s infinite alternate ease-in-out;
-            will-change: transform; /* Mobile Optimization */
+            will-change: transform; 
         }
-        .sphere-1 {
-            top: -10%; right: -5%; width: 600px; height: 600px;
-            background: radial-gradient(circle at 30% 30%, rgba(60, 60, 60, 1), rgba(0, 0, 0, 0));
-        }
-        .sphere-2 {
-            bottom: 5%; left: -10%; width: 500px; height: 500px;
-            background: radial-gradient(circle at 70% 30%, rgba(40, 40, 40, 1), rgba(0, 0, 0, 0));
-            animation-delay: -5s;
-        }
-        .sphere-3 {
-            top: 20%; left: 20%; width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.15), rgba(0,0,0,0)); /* Slightly boosted gold */
-            filter: blur(80px);
-            animation-duration: 20s;
-        }
+        .sphere-1 { top: -10%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle at 30% 30%, rgba(60, 60, 60, 1), rgba(0, 0, 0, 0)); }
+        .sphere-2 { bottom: 5%; left: -10%; width: 500px; height: 500px; background: radial-gradient(circle at 70% 30%, rgba(40, 40, 40, 1), rgba(0, 0, 0, 0)); animation-delay: -5s; }
+        .sphere-3 { top: 20%; left: 20%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212, 175, 55, 0.15), rgba(0,0,0,0)); filter: blur(80px); animation-duration: 20s; }
 
-        @keyframes float-bg {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(20px, 40px); }
-        }
+        @keyframes float-bg { 0% { transform: translate(0, 0); } 100% { transform: translate(20px, 40px); } }
 
         /* --- NAVBAR --- */
         .blur-navbar {
-            position: fixed;
-            top: 0; left: 0; width: 100%; z-index: 1000;
-            background: rgba(5, 5, 5, 0.85); /* Darker for better contrast */
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding: 15px 20px;
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            background: rgba(5, 5, 5, 0.85); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.05); padding: 15px 20px;
         }
-        .nav-container {
-            display: flex; justify-content: space-between; align-items: center;
-            max-width: 900px; margin: 0 auto;
-        }
-        .nav-logo {
-            font-family: var(--font-logo); 
-            color: var(--accent-gold);
-            font-weight: 700; 
-            letter-spacing: 2px;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-        }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 900px; margin: 0 auto; }
+        .nav-logo { font-family: var(--font-logo); color: var(--accent-gold); font-weight: 700; letter-spacing: 2px; font-size: 1.3rem; text-transform: uppercase; }
         .nav-btn {
-            background-color: var(--accent-gold); color: #000; border: none;
-            padding: 8px 20px; font-weight: 700; border-radius: 4px;
-            cursor: pointer; font-size: 0.8rem; text-transform: uppercase;
-            font-family: var(--font-body);
-            transition: all 0.3s ease;
+            background-color: var(--accent-gold); color: #000; border: none; padding: 8px 20px; font-weight: 700; border-radius: 4px;
+            cursor: pointer; font-size: 0.8rem; text-transform: uppercase; font-family: var(--font-body); transition: all 0.3s ease;
         }
         .nav-btn:hover { background-color: var(--accent-gold-hover); }
+        /* Style for the 'Access' button state */
+        .nav-btn.access-mode {
+            background-color: #fff; color: #000; box-shadow: 0 0 15px rgba(255,255,255,0.3);
+        }
 
         /* --- TYPOGRAPHY --- */
         h1 { font-family: var(--font-head); font-size: 3.5rem; line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -1px; text-align: center; }
         h2 { font-family: var(--font-head); font-size: 2.2rem; margin-bottom: 1rem; color: var(--text-main); text-align: center; }
         p { color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 0 auto 1.5rem auto; text-align: center; }
-        
         b, strong { color: #fff; font-weight: 700; }
         .highlight { color: var(--accent-gold); font-family: var(--font-head); font-style: italic; }
 
-        /* --- GLASS SECTIONS (OPTIMIZED) --- */
+        /* --- GLASS SECTIONS --- */
         .glass-section {
-            padding: 80px 40px;
-            margin: 40px auto;
-            max-width: 900px;
-            border-radius: 30px;
+            padding: 80px 40px; margin: 40px auto; max-width: 900px; border-radius: 30px;
             display: flex; flex-direction: column; align-items: center; text-align: center;
-
-            /* Initial State (Hidden) */
-            opacity: 0; 
-            transform: translateY(60px) scale(0.98);
-            
-            /* Performance Optimization: Removed 'filter' transition */
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            will-change: opacity, transform;
+            opacity: 0; transform: translateY(60px) scale(0.98);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform;
         }
-
         .glass-section.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-            
-            /* The Glass Look (Applied only when active to save resources) */
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px) saturate(150%);
-            -webkit-backdrop-filter: blur(20px) saturate(150%);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 
-                0 4px 30px rgba(0, 0, 0, 0.5), 
-                inset 0 0 20px rgba(255, 255, 255, 0.03); 
+            opacity: 1; transform: translateY(0) scale(1);
+            background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.03); 
         }
 
         /* --- HERO ARROW --- */
-        .hero-arrow {
-            margin-top: 40px;
-            font-size: 3rem; 
-            color: var(--accent-gold);
-            cursor: pointer;
-            opacity: 0.8;
-            animation: float-arrow 2.5s infinite ease-in-out; 
-        }
-        @keyframes float-arrow {
-            0% { transform: translateY(0); opacity: 0.6; }
-            50% { transform: translateY(15px); opacity: 1; text-shadow: 0 0 10px var(--accent-gold); }
-            100% { transform: translateY(0); opacity: 0.6; }
-        }
+        .hero-arrow { margin-top: 40px; font-size: 3rem; color: var(--accent-gold); cursor: pointer; opacity: 0.8; animation: float-arrow 2.5s infinite ease-in-out; }
+        @keyframes float-arrow { 0% { transform: translateY(0); opacity: 0.6; } 50% { transform: translateY(15px); opacity: 1; text-shadow: 0 0 10px var(--accent-gold); } 100% { transform: translateY(0); opacity: 0.6; } }
 
-        /* --- FEATURE CARDS --- */
-        .feature-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px; margin-top: 50px; width: 100%;
-        }
+        /* --- CARDS & PRICING --- */
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 50px; width: 100%; }
         .feature-card {
-            background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px; padding: 40px 20px; text-align: center;
+            background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 40px 20px; text-align: center;
             transition: 0.3s; display: flex; flex-direction: column; align-items: center;
         }
-        .feature-card:hover { 
-            border-color: var(--accent-gold); background: rgba(255, 255, 255, 0.05); transform: translateY(-5px); 
-        }
-        .feature-card h3 { 
-            font-family: var(--font-head); 
-            color: var(--accent-gold); 
-            margin-bottom: 10px; font-size: 1.25rem; font-style: italic;
-        }
-        .feature-card h3::before {
-            content: ''; display: block; width: 40px; height: 2px;
-            background: var(--accent-gold); margin: 0 auto 15px auto;
-        }
-        .feature-card p {
-            font-size: 0.95rem; line-height: 1.5; color: #aaa;
-        }
-        
-        /* --- PRICING CARD --- */
-        .pricing-card {
-            background: #050505; 
-            border: 1px solid rgba(212, 175, 55, 0.3); 
-            border-radius: 20px; 
-            padding: 50px 40px; 
-            width: 100%; max-width: 550px;
-            position: relative; 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
-            text-align: left; 
-        }
+        .feature-card:hover { border-color: var(--accent-gold); background: rgba(255, 255, 255, 0.05); transform: translateY(-5px); }
+        .feature-card h3 { font-family: var(--font-head); color: var(--accent-gold); margin-bottom: 10px; font-size: 1.25rem; font-style: italic; }
+        .feature-card h3::before { content: ''; display: block; width: 40px; height: 2px; background: var(--accent-gold); margin: 0 auto 15px auto; }
+        .feature-card p { font-size: 0.95rem; line-height: 1.5; color: #aaa; }
 
-        .access-label {
-            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px;
-            color: var(--accent-gold); margin-bottom: 10px; text-align: center; font-weight: 600;
+        .pricing-card {
+            background: #050505; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 20px; padding: 50px 40px; 
+            width: 100%; max-width: 550px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.8); text-align: left; 
         }
+        .access-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-gold); margin-bottom: 10px; text-align: center; font-weight: 600; }
         .price-container { text-align: center; margin-bottom: 5px; }
-        .price-tag { 
-            font-family: var(--font-head); font-size: 4.5rem; font-weight: 700; 
-            color: #fff; line-height: 1; letter-spacing: -2px;
-        }
-        .price-subtext {
-            display: block; text-align: center; font-size: 0.95rem; color: #777; margin-bottom: 30px;
-        }
+        .price-tag { font-family: var(--font-head); font-size: 4.5rem; font-weight: 700; color: #fff; line-height: 1; letter-spacing: -2px; }
+        .price-subtext { display: block; text-align: center; font-size: 0.95rem; color: #777; margin-bottom: 30px; }
         .checklist { list-style: none; margin: 30px 0; padding: 0; }
         .checklist li { margin-bottom: 20px; display: flex; align-items: flex-start; color: #E5E5E5; }
-        .checklist li svg { 
-            width: 20px; height: 20px; fill: var(--accent-gold); 
-            margin-right: 15px; flex-shrink: 0; margin-top: 4px;
-        }
+        .checklist li svg { width: 20px; height: 20px; fill: var(--accent-gold); margin-right: 15px; flex-shrink: 0; margin-top: 4px; }
         .item-content strong { display: block; font-size: 1.05rem; color: #fff; margin-bottom: 2px; }
         .item-content span { font-size: 0.9rem; color: #888; line-height: 1.4; }
-        .trust-line {
-            font-size: 0.8rem; color: #555; text-align: center; margin-bottom: 25px;
-            border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px;
-        }
-        .authority-line {
-            font-size: 0.8rem; color: #777; text-align: center; margin-bottom: 10px; font-style: italic;
-        }
+        .trust-line { font-size: 0.8rem; color: #555; text-align: center; margin-bottom: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 15px; }
+        .authority-line { font-size: 0.8rem; color: #777; text-align: center; margin-bottom: 10px; font-style: italic; }
 
-        /* --- BUTTON & PULSE --- */
         .gold-btn-large {
-            background-color: var(--accent-gold); color: #000; width: 100%; padding: 18px;
-            font-size: 1.1rem; font-weight: 800; text-transform: uppercase; border: none;
-            border-radius: 6px; cursor: pointer; transition: all 0.3s ease;
-            font-family: var(--font-body); letter-spacing: 0.5px;
+            background-color: var(--accent-gold); color: #000; width: 100%; padding: 18px; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; border: none;
+            border-radius: 6px; cursor: pointer; transition: all 0.3s ease; font-family: var(--font-body); letter-spacing: 0.5px;
         }
-        .gold-btn-large:hover { 
-            background-color: var(--accent-gold-hover); transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); animation: pulse-gold 1.5s infinite;
-        }
+        .gold-btn-large:hover { background-color: var(--accent-gold-hover); transform: translateY(-2px); box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); animation: pulse-gold 1.5s infinite; }
+        /* Style for the 'Access' button state in pricing card */
+        .gold-btn-large.access-mode { background-color: #fff; color: #000; box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+
         @keyframes pulse-gold {
             0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
             100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
         }
-        .footer-secure {
-            font-size: 0.8rem; color: #444; margin-top: 15px; display: block; text-align: center;
-        }
+        .footer-secure { font-size: 0.8rem; color: #444; margin-top: 15px; display: block; text-align: center; }
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
@@ -267,10 +158,8 @@
 
     <div class="glass-section" style="margin-top: 140px;">
         <p style="text-transform: uppercase; letter-spacing: 3px; font-size: 0.8rem; color: var(--accent-gold); margin-bottom: 20px;">The Billion Club</p>
-        
         <h1>You have done the hard part.</h1>
         <p>Making money is hard. Keeping it is harder. <br>You need a system, not luck.</p>
-        
         <div class="hero-arrow">&darr;</div>
     </div>
 
@@ -283,7 +172,6 @@
     <div class="glass-section">
         <h2>The Blueprint</h2>
         <p>Simple. Effective. Proven.</p>
-
         <div class="feature-grid">
             <div class="feature-card">
                 <h3>The Mindset</h3>
@@ -306,9 +194,7 @@
 
         <div style="margin-top: 40px; width: 100%; display: flex; justify-content: center;">
             <div class="pricing-card">
-                
                 <div class="access-label">Starter Access</div>
-                
                 <div class="price-container">
                     <span class="price-tag">₹99</span>
                 </div>
@@ -346,11 +232,9 @@
                 </ul>
 
                 <p class="trust-line">No profit promises. No signals. Education only.</p>
-
                 <p class="authority-line">₹99 is not the value. It’s the entry point.</p>
                 
                 <button id="rzp-button-final" class="gold-btn-large">Get Starter Access</button>
-                
                 <span class="footer-secure">Secure payment • Powered by Razorpay</span>
             </div>
         </div>
@@ -363,7 +247,7 @@
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
-        // --- 1. VISUAL EFFECTS (Scroll Transition) ---
+        // --- 1. VISUAL EFFECTS ---
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -373,24 +257,57 @@
         document.querySelectorAll('.glass-section').forEach(section => { observer.observe(section); });
 
         // --- 2. CONFIGURATION ---
-        
-        // 🟢 Link is safely stored here
         const PRODUCT_LINK = "https://drive.google.com/drive/folders/1mZxO9gvoL3ceO1GQSQ8iZJR6JoiXvHG5?usp=sharing"; 
+        
+        // 🟢 FOR TESTING I KEPT THIS AT ₹1. CHANGE TO "9900" FOR REAL LAUNCH.
+        const PRICE_AMOUNT = "100"; 
 
+        // --- 3. CHECK IF ALREADY PURCHASED (The Fix) ---
+        // This runs immediately when the page loads
+        document.addEventListener("DOMContentLoaded", function() {
+            // Check if "billion_club_paid" exists in browser memory
+            if (localStorage.getItem("billion_club_paid") === "true") {
+                unlockContent();
+            }
+        });
+
+        // Function to change buttons from "Buy" to "Open"
+        function unlockContent() {
+            const btnNav = document.getElementById('rzp-button-nav');
+            const btnFinal = document.getElementById('rzp-button-final');
+
+            // Update Text
+            btnNav.innerText = "OPEN SYSTEM";
+            btnFinal.innerText = "ACCESS YOUR SYSTEM";
+
+            // Update Style (Optional: Make them white/bright to show access)
+            btnNav.classList.add('access-mode');
+            btnFinal.classList.add('access-mode');
+
+            // Change click behavior to open Link instead of Payment
+            const openProduct = function(e) {
+                e.preventDefault();
+                window.location.href = PRODUCT_LINK;
+            };
+
+            btnNav.onclick = openProduct;
+            btnFinal.onclick = openProduct;
+        }
+
+        // --- 4. RAZORPAY SETUP ---
         var options = {
             "key": "rzp_live_RvwM02VxkcMMzE", 
-            
-            // 🟢 Set to 9900 paise (which equals ₹99)
-            "amount": "100", 
-            
+            "amount": PRICE_AMOUNT, 
             "currency": "INR",
             "name": "The Billion Club",
             "description": "Starter System Access",
             "image": "", 
             
-            // --- THE REDIRECT HANDLER ---
             "handler": function (response){
-                // 🟢 Redirects user to the Drive Link
+                // 🟢 1. SAVE TO MEMORY: "User has paid"
+                localStorage.setItem("billion_club_paid", "true");
+
+                // 🟢 2. REDIRECT
                 window.location.href = PRODUCT_LINK; 
             },
             
@@ -400,16 +317,15 @@
 
         var rzp1 = new Razorpay(options);
 
-        // Handle Errors
         rzp1.on('payment.failed', function (response){
             alert("Payment Failed. Please try again.");
         });
 
-        // Button Actions
+        // Attach Payment Trigger (Only if NOT already paid)
+        // If already paid, the 'unlockContent' function above overwrites this.
         document.getElementById('rzp-button-final').onclick = function(e){ rzp1.open(); e.preventDefault(); }
         document.getElementById('rzp-button-nav').onclick = function(e){ rzp1.open(); e.preventDefault(); }
     </script>
 
 </body>
 </html>
-
