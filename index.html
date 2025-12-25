@@ -360,9 +360,9 @@
         <p style="color: #444; font-size: 0.8rem;">&copy; 2024 THE BILLION CLUB</p>
     </footer>
 
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
-        // --- 1. SCROLL OBSERVER ---
+        // --- 1. SCROLL OBSERVER (Visual Effects) ---
         const observerOptions = {
             root: null,
             rootMargin: '0px',
@@ -381,24 +381,59 @@
             observer.observe(section);
         });
 
-        // --- 2. RAZORPAY CONFIG ---
+        // --- 2. RAZORPAY CONFIGURATION (Payment Logic) ---
+        
+        // REPLACEMENT STEP 1: Paste your Google Drive/Notion link here
+        const PRODUCT_LINK = "https://drive.google.com/drive/folders/1mZxO9gvoL3ceO1GQSQ8iZJR6JoiXvHG5?usp=drive_link"; 
+
         var options = {
+            // REPLACEMENT STEP 2: Paste your Razorpay Key ID here
             "key": "rzp_live_RvwM02VxkcMMzE", 
-            "amount": "9900", 
+            
+            "amount": "9900", // Amount is in paise (9900 paise = ₹99)
             "currency": "INR",
             "name": "The Billion Club",
             "description": "Starter System Access",
+            "image": "", // Optional: Link to your logo URL
+            
+            // This function runs ONLY when payment is successful
             "handler": function (response){
-                alert("Payment Successful! ID: " + response.razorpay_payment_id);
+                // 1. (Optional) You can log the payment ID for reference
+                console.log("Payment ID: " + response.razorpay_payment_id);
+
+                // 2. DELIVER THE PRODUCT
+                // This redirects the user to your content immediately
+                window.location.href = PRODUCT_LINK; 
             },
-            "theme": { "color": "#D4AF37" }
+            "prefill": {
+                "name": "", // Leave empty to let user type
+                "email": "",
+                "contact": ""
+            },
+            "theme": { 
+                "color": "#D4AF37" // Matches your Gold Accent
+            }
         };
 
         var rzp1 = new Razorpay(options);
-        document.getElementById('rzp-button-final').onclick = function(e){ rzp1.open(); e.preventDefault(); }
-        document.getElementById('rzp-button-nav').onclick = function(e){ rzp1.open(); e.preventDefault(); }
+
+        // Handle Payment Failures
+        rzp1.on('payment.failed', function (response){
+            alert("Payment Failed. Please try again.");
+        });
+
+        // Attach to Buttons
+        document.getElementById('rzp-button-final').onclick = function(e){ 
+            rzp1.open(); 
+            e.preventDefault(); 
+        }
+        document.getElementById('rzp-button-nav').onclick = function(e){ 
+            rzp1.open(); 
+            e.preventDefault(); 
+        }
     </script>
 
 </body>
 
 </html>
+
